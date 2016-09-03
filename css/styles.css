@@ -1,0 +1,29 @@
+body{
+	background: #005C97; 
+ 	background: -webkit-linear-gradient(to left, #000428 , #004e92); 
+ 	background: linear-gradient(to left, #000428 , #004e92);
+}
+
+.box{
+	float: left;
+
+	width: 30%;
+	margin: 1.66%;
+	height: 10em;
+
+	background: red;	
+}
+
+.title{
+	color: #FDFFFC;
+	text-align: center;
+}
+
+/*
+#FF0022 Blue
+#FF0022 Red
+#41EAD4 Turquoise
+#FDFFFC White Powder
+#FDFFFC Violet
+
+*/
