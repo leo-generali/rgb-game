@@ -29,6 +29,7 @@ for(var i = 0; i < squares.length; i++){
 			score += scoreMultiplier * 10;
 			updateScore();
 			makeSquaresReappear();
+			newGame();
 		} else {
 			//if the color is guessed wrong the games removes from the multiplier bonus
 			scoreMultiplier -= 2;
@@ -39,6 +40,8 @@ for(var i = 0; i < squares.length; i++){
 }
 
 function newGame(e){
+	//make all squares reappear
+	makeSquaresReappear();
 	//generate all new colors
 	colors = generateRandomColors(difficulty);
 	//pick a new random color from arr
@@ -49,6 +52,7 @@ function newGame(e){
 	for(var i = 0; i < squares.length; i++){
 		squares[i].style.background = colors[i];
 	}
+	scoreMultiplier = difficulty;
 }
 
 function makeSquaresReappear(){
