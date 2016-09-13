@@ -19,6 +19,17 @@ body{
 	text-align: center;
 }
 
+.newGameButton{
+	background-color: #FDFFFC;
+	color: black;
+	margin: 0px auto
+}
+
+.newGameButton:hover{
+	background-color: #E3E5E2;
+	color: black;
+}
+
 /*
 #FF0022 Blue
 #FF0022 Red
