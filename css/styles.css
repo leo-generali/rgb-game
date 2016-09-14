@@ -30,6 +30,10 @@ body{
 	color: black;
 }
 
+.selectedColor{
+	background-color: #B1B2B0;
+}
+
 /*
 #FF0022 Blue
 #FF0022 Red

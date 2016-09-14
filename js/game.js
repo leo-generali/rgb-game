@@ -1,7 +1,8 @@
 
 
 var score = 0;
-var difficulty = 6
+var difficulty = 6;
+
 var scoreMultiplier = difficulty;
 
 var colors = generateRandomColors(difficulty);
@@ -14,6 +15,12 @@ colorDisplay.textContent = pickedColor;
 
 var resetButton = document.getElementById('reset');
 resetButton.addEventListener("click", newGame);
+
+var easyButton = document.getElementById('easyBtn');
+easyButton.addEventListener("click", easyButtonPress);
+
+var hardButton = document.getElementById('hardBtn');
+hardButton.addEventListener("click", hardButtonPress);
 
 for(var i = 0; i < squares.length; i++){
 	//adds the initial colors to the squares
@@ -56,7 +63,7 @@ function newGame(e){
 }
 
 function makeSquaresReappear(){
-	for(var i = 0; i < squares.length; i++){
+	for(var i = 0; i < colorDisplay.length; i++){
 		squares[i].style.visibility = 'visible';
 	}
 }
@@ -95,4 +102,35 @@ function createRandomColor(){
 function updateScore(){
 	var displayedScore = document.getElementById('score');
 	displayedScore.innerHTML = score;
+}
+
+function easyButtonPress(e){
+	console.log('pressed');
+	this.classList.add('selectedColor');
+	hardButton.classList.remove('selectedColor');
+	difficulty = 3;
+	colors = generateRandomColors(difficulty);
+	pickedColor = pickRandomColor();
+	colorDisplay.textContent = pickedColor;
+	for(var i = 0; i < squares.length; i++){
+		if(i < difficulty){
+			squares[i].style.background = colors[i];
+		}else{
+			squares[i].style.visibility = 'hidden'; 
+		}
+	}
+}
+
+function hardButtonPress(e){
+	console.log('pressed');
+	this.classList.add('selectedColor');
+	easyButton.classList.remove('selectedColor');
+	difficulty = 6;
+	colors = generateRandomColors(difficulty);
+	pickedColor = pickRandomColor();
+	colorDisplay.textContent = pickedColor;
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.visibility = 'visible'; 
+		squares[i].style.background = colors[i];		
+	}
 }
