@@ -24,28 +24,23 @@
 	</head>
 
 	<body>
-		<div class='container'>
+		<div class='row body-text box-shadow u-full-width button-row'>
+			<h1 class='title'>Guess the Color!</h1>
+			<h3 class='title' id = 'colorDisplay'>RGB</h1>
+			<h4 class='title'>Score: <span id='score'>0</span></h1>
+			<button class='newGameButton' id='reset'>New Game</button>
+			<button class='newGameButton' id='easyBtn'>Easy</button>
+			<button class='newGameButton selectedColor' id='hardBtn'>Hard</button>
+		</div>
+		<div class = 'container'>
 			<div class='row'>
-				<h1 class='title'>Guess the Color!</h1>
+				<div class='box box-shadow'></div>
+				<div class='box box-shadow	'></div>
+				<div class='box box-shadow'></div>
+				<div class='box box-shadow'></div>
+				<div class='box box-shadow'></div>
+				<div class='box box-shadow'></div>
 			</div>
-			<div class='row'>
-				<h1 class='title six columns' id = 'colorDisplay'>RGB</h1>
-				<h1 class='title six columns'>Score: <span id='score'>0</span></h1>
-			</div>
-			<div class='row'>
-				<button class='newGameButton' id='reset'>New Colors</button>
-				<button class='newGameButton' id='easyBtn'>Easy</button>
-				<button class='newGameButton selectedColor' id='hardBtn'>Hard</button>
-			</div>
-			<div class='row'>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-			</div>
-			
 		</div>
 	</body>
 </html>

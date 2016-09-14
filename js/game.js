@@ -14,7 +14,7 @@ var colorDisplay = document.getElementById('colorDisplay');
 colorDisplay.textContent = pickedColor;
 
 var resetButton = document.getElementById('reset');
-resetButton.addEventListener("click", newGame);
+resetButton.addEventListener("click", resetGame);
 
 var easyButton = document.getElementById('easyBtn');
 easyButton.addEventListener("click", easyButtonPress);
@@ -46,6 +46,24 @@ for(var i = 0; i < squares.length; i++){
 	});
 }
 
+function resetGame(e){
+	score = 0;
+	updateScore();
+	//make all squares reappear
+	makeSquaresReappear();
+	//generate all new colors
+	colors = generateRandomColors(difficulty);
+	//pick a new random color from arr
+	pickedColor = pickRandomColor();	
+	//change colorDisplay to match new color
+	colorDisplay.textContent = pickedColor;
+	//change colors of squares on the page
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.background = colors[i];
+	}
+	scoreMultiplier = difficulty;
+}
+
 function newGame(e){
 	//make all squares reappear
 	makeSquaresReappear();
@@ -63,7 +81,7 @@ function newGame(e){
 }
 
 function makeSquaresReappear(){
-	for(var i = 0; i < colorDisplay.length; i++){
+	for(var i = 0; i < colors.length; i++){
 		squares[i].style.visibility = 'visible';
 	}
 }
@@ -109,14 +127,18 @@ function easyButtonPress(e){
 	this.classList.add('selectedColor');
 	hardButton.classList.remove('selectedColor');
 	difficulty = 3;
+	scoreMultiplier = difficulty;
+	score = 0;
+	updateScore();
 	colors = generateRandomColors(difficulty);
 	pickedColor = pickRandomColor();
 	colorDisplay.textContent = pickedColor;
 	for(var i = 0; i < squares.length; i++){
 		if(i < difficulty){
+			squares[i].style.visibility = 'visible'; 
 			squares[i].style.background = colors[i];
 		}else{
-			squares[i].style.visibility = 'hidden'; 
+			squares[i].style.display = 'none'; 
 		}
 	}
 }
@@ -126,10 +148,14 @@ function hardButtonPress(e){
 	this.classList.add('selectedColor');
 	easyButton.classList.remove('selectedColor');
 	difficulty = 6;
+	scoreMultiplier = difficulty;
+	score = 0;
+	updateScore();
 	colors = generateRandomColors(difficulty);
 	pickedColor = pickRandomColor();
 	colorDisplay.textContent = pickedColor;
 	for(var i = 0; i < squares.length; i++){
+		squares[i].style.display = 'block';
 		squares[i].style.visibility = 'visible'; 
 		squares[i].style.background = colors[i];		
 	}

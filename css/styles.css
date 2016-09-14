@@ -1,37 +1,68 @@
+h1, h2, h3, h4, h5, h6{
+	margin: 0;
+}
+
 body{
 	background: #005C97; 
  	background: -webkit-linear-gradient(to left, #000428 , #004e92); 
  	background: linear-gradient(to left, #000428 , #004e92);
 }
 
-.box{
-	float: left;
+button{
+	margin: 0;
+}
 
-	width: 30%;
-	margin: 1.66%;
+.box{
+	border-radius: 1.5em;	
+	margin: 4% 8%;
 	height: 10em;
 
-	background: red;	
+	background: red;
+
+	transition: background 0.2s;
+	-webkit-transition: background 0.2s; 
+	-moz-transition: background 0.2s;
+}
+
+.box:hover{
+	opacity: 0.7;
 }
 
 .title{
-	color: #FDFFFC;
 	text-align: center;
 }
 
 .newGameButton{
 	background-color: #FDFFFC;
 	color: black;
-	margin: 0px auto
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	width: 30%;
+	max-width: 15em;
 }
 
 .newGameButton:hover{
-	background-color: #E3E5E2;
+	background-color: #B1B2B0;
 	color: black;
 }
 
 .selectedColor{
-	background-color: #B1B2B0;
+	background-color: #E3E5E2;
+}
+
+.body-text{
+ 	background-color: white;
+ 	padding: 1rem;
+ 	font-size: 2.4rem;
+}
+
+.box-shadow{
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.button-row{
+	text-align: center;
 }
 
 /*
@@ -42,3 +73,21 @@ body{
 #FDFFFC Violet
 
 */
+
+/* Mobile first queries */
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
