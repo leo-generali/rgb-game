@@ -28,21 +28,25 @@ button{
 	opacity: 0.7;
 }
 
+.boxRow{
+	text-align: center;
+}
+
 .title{
 	text-align: center;
 }
 
-.newGameButton{
+.selectorBtn{
 	background-color: #FDFFFC;
 	color: black;
 	transition: all 0.1s;
 	-webkit-transition: all 0.1s;
 	-moz-transition: all 0.1s;
-	width: 30%;
-	max-width: 15em;
+	width: 22%;
+	max-width: 10em;
 }
 
-.newGameButton:hover{
+.selectorBtn:hover{
 	background-color: #B1B2B0;
 	color: black;
 }
@@ -65,6 +69,10 @@ button{
 	text-align: center;
 }
 
+.instructions{
+	display: none;
+}
+
 /*
 #FF0022 Blue
 #FF0022 Red
@@ -81,10 +89,21 @@ button{
 
 /* Larger than phablet */
 @media (min-width: 550px) {
+	.box{
+		float: left;
+		margin: 2.5%;
+		width: 45%;	
+	}
 }
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+	.box{
+		float: left;
+		margin: 1.66%;
+		width: 30%;	
+	}
+}
 
 /* Larger than desktop */
 @media (min-width: 1000px) {}

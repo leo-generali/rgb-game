@@ -1,5 +1,3 @@
-
-
 var score = 0;
 var difficulty = 6;
 
@@ -21,6 +19,10 @@ easyButton.addEventListener("click", easyButtonPress);
 
 var hardButton = document.getElementById('hardBtn');
 hardButton.addEventListener("click", hardButtonPress);
+
+var rules = document.getElementById('instructions');
+var showRules = document.getElementById('questionBtn');
+showRules.addEventListener("click", showInstructions);
 
 for(var i = 0; i < squares.length; i++){
 	//adds the initial colors to the squares
@@ -158,5 +160,15 @@ function hardButtonPress(e){
 		squares[i].style.display = 'block';
 		squares[i].style.visibility = 'visible'; 
 		squares[i].style.background = colors[i];		
+	}
+}
+
+function showInstructions(e){
+	if(rules.style.display === ''){
+		showRules.classList.add('selectedColor');
+		rules.style.display = 'block';
+	}else if(rules.style.display === 'block'){
+		showRules.classList.remove('selectedColor');
+		rules.style.display = '';
 	}
 }

@@ -18,28 +18,42 @@
  	<link rel="stylesheet" href="css/skeleton.css">
  	<link rel="stylesheet" href="css/styles.css">
 
+
 	<!-- JavaScript -->
 	<script src="js/game.js" defer></script>
 
 	</head>
 
 	<body>
-		<div class='row body-text box-shadow u-full-width button-row'>
+		<div class='row body-text box-shadow button-row'>
 			<h1 class='title'>Guess the Color!</h1>
 			<h3 class='title' id = 'colorDisplay'>RGB</h1>
 			<h4 class='title'>Score: <span id='score'>0</span></h1>
-			<button class='newGameButton' id='reset'>New Game</button>
-			<button class='newGameButton' id='easyBtn'>Easy</button>
-			<button class='newGameButton selectedColor' id='hardBtn'>Hard</button>
+			<button class='selectorBtn' id='reset'>New Game</button>
+			<button class='selectorBtn' id='easyBtn'>Easy</button>
+			<button class='selectorBtn selectedColor' id='hardBtn'>Hard</button>
+			<button class='selectorBtn' id='questionBtn'>?</button>
 		</div>
 		<div class = 'container'>
-			<div class='row'>
-				<div class='box box-shadow'></div>
-				<div class='box box-shadow	'></div>
-				<div class='box box-shadow'></div>
-				<div class='box box-shadow'></div>
-				<div class='box box-shadow'></div>
-				<div class='box box-shadow'></div>
+			<div class='row boxRow'>
+				<div class = 'row body-text box-shadow instructions' id='instructions'>
+					<h4>How to Play</h4>
+					<h5>Try to guess the the correct color based off of the given RBG code.</h5>
+					<h5>Easy mode adds 30 points per correct click. Hard mode adds 60 points.</h5>
+					<h5>Incorrect clicks remove 20 points from potential score additions.</h5>
+					
+					<h4>How to Win</h4>
+					<h5>See if you can make it to 300 points!</h5>
+
+					<h4>Made By:</h4>
+					<h5>Leo Generali</h5>
+				</div>
+				<div class ='box box-shadow'></div>
+				<div class ='box box-shadow'></div>
+				<div class ='box box-shadow'></div>
+				<div class ='box box-shadow'></div>
+				<div class ='box box-shadow'></div>
+				<div class ='box box-shadow'></div>
 			</div>
 		</div>
 	</body>
