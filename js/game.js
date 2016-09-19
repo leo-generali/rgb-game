@@ -26,6 +26,11 @@ var rules = document.getElementById('instructions');
 var showRules = document.getElementById('questionBtn');
 showRules.addEventListener("click", showInstructions);
 
+var finalScore = document.getElementById('finalScore');
+var finalClicks = document.getElementById('finalClicks');
+
+var winPanel = document.getElementById('winState');
+
 for(var i = 0; i < squares.length; i++){
 	//adds the initial colors to the squares
 	squares[i].style.background = colors[i];
@@ -39,12 +44,12 @@ for(var i = 0; i < squares.length; i++){
 			console.log('yup');
 			clicks++;
 			score += scoreMultiplier * 10;
-			if(score >= scoreToReach){
-				gameWin();
-			}
 			updateScore();
 			makeSquaresReappear();
 			newGame();
+			if(score >= scoreToReach){
+				gameWin();
+			}
 		} else {
 			//if the color is guessed wrong the games removes from the multiplier bonus
 			scoreMultiplier -= 2;
@@ -58,6 +63,7 @@ for(var i = 0; i < squares.length; i++){
 function resetGame(e){
 	score = 0;
 	clicks = 0;
+	winPanel.style.display = 'none';
 	updateScore();
 	//make all squares reappear
 	makeSquaresReappear();
@@ -88,6 +94,7 @@ function newGame(e){
 		squares[i].style.background = colors[i];
 	}
 	scoreMultiplier = difficulty;
+
 }
 
 function makeSquaresReappear(){
@@ -138,7 +145,9 @@ function easyButtonPress(e){
 	hardButton.classList.remove('selectedColor');
 	difficulty = 3;
 	scoreMultiplier = difficulty;
+	winPanel.style.display = 'none';
 	score = 0;
+	clicks = 0;
 	updateScore();
 	colors = generateRandomColors(difficulty);
 	pickedColor = pickRandomColor();
@@ -159,7 +168,9 @@ function hardButtonPress(e){
 	easyButton.classList.remove('selectedColor');
 	difficulty = 6;
 	scoreMultiplier = difficulty;
+	winPanel.style.display = 'none';
 	score = 0;
+	clicks = 0;
 	updateScore();
 	colors = generateRandomColors(difficulty);
 	pickedColor = pickRandomColor();
@@ -182,9 +193,15 @@ function showInstructions(e){
 }
 
 function gameWin(){
-	console.log('yipee!');
+	winPanel.style.display = 'block';
 	//hide all boxes
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.visibility = 'hidden';
+		console.log(i);
+	}
 	//display congratulations message
+	finalScore.textContent = score;
+	finalClicks.textContent = clicks;
 	//give player option to tweet
 	//new game option
 }
