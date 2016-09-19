@@ -1,5 +1,7 @@
 var score = 0;
 var difficulty = 6;
+var clicks = 0;
+var scoreToReach = 300;
 
 var scoreMultiplier = difficulty;
 
@@ -35,7 +37,11 @@ for(var i = 0; i < squares.length; i++){
 			//if the color is guessed right the game adds to player score
 			//added points are equal to the difficulty * 10
 			console.log('yup');
+			clicks++;
 			score += scoreMultiplier * 10;
+			if(score >= scoreToReach){
+				gameWin();
+			}
 			updateScore();
 			makeSquaresReappear();
 			newGame();
@@ -43,6 +49,7 @@ for(var i = 0; i < squares.length; i++){
 			//if the color is guessed wrong the games removes from the multiplier bonus
 			scoreMultiplier -= 2;
 			updateScore();
+			clicks++;
 			this.style.visibility = 'hidden'; 
 		}
 	});
@@ -50,6 +57,7 @@ for(var i = 0; i < squares.length; i++){
 
 function resetGame(e){
 	score = 0;
+	clicks = 0;
 	updateScore();
 	//make all squares reappear
 	makeSquaresReappear();
@@ -171,4 +179,12 @@ function showInstructions(e){
 		showRules.classList.remove('selectedColor');
 		rules.style.display = '';
 	}
+}
+
+function gameWin(){
+	console.log('yipee!');
+	//hide all boxes
+	//display congratulations message
+	//give player option to tweet
+	//new game option
 }
