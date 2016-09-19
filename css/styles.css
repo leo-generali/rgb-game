@@ -10,6 +10,7 @@ body{
 
 button{
 	margin: 0;
+	padding: 0;
 }
 
 .box{
@@ -42,8 +43,8 @@ button{
 	transition: all 0.1s;
 	-webkit-transition: all 0.1s;
 	-moz-transition: all 0.1s;
-	width: 22%;
-	max-width: 10em;
+	width: 10em;
+
 }
 
 .selectorBtn:hover{
