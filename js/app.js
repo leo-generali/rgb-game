@@ -16,6 +16,7 @@ var model = {
 var controller = {
 	init: function(){
 		this.replaceModelRGB();
+		view.init();
 	},
 
 	//Generates a random number
@@ -68,15 +69,44 @@ var view = {
 	init: function(){
 		this.playerSettings = controller.returnSettings();
 		this.playerColors = controller.returnModelRGB();
+		
+
+		this.boardElem = document.getElementById('board');
+
+		this.createNewColoredBox(this.playerSettings.difficulty);
+
+		this.boxes = document.querySelectorAll('.box');
+
 	},
 
 	refreshPlayerColors: function(){
 		this.playerColors = controller.returnModelRGB();
 	},
 
-	//Selects an RGB value from the squareColors array to display for the player
+	//uses the playerColors array to generate x amount of boxes
+	createNewColoredBox: function(num){		
+		for(var i = 0; i < num; i++){
+			this.boxDiv = document.createElement('div');
+			this.boxDiv.classList.add('box');
+			this.boxDiv.classList.add('box-shadow');
+			this.boxDiv.style.backgroundColor = this.playerColors[i];
+			this.boardElem.appendChild(this.boxDiv);
+		}
+	},
 
+	changeColors: function(num){
+		for(var i = 0; i < num; i++){
+			this.boxes[i].style.backgroundColor = this.playerColors[i];
+		}
+	},
+
+	//remove's all the boxes on the page
+	removeBoxes: function(num){
+		for(var i = 0; i < num; i++){
+			this.boardElem.removeChild(this.boardElem.childNodes[5]);
+		}
+	}
 };
 
 //Starts the application
-//controller.init();
+controller.init();
